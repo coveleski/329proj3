@@ -1,23 +1,31 @@
 ﻿body
 {
-	background-color: limegreen;
+	background-color:#993300;
+	padding:0;
+	margin:0;
 }
 #banner{
-	background-color:gray;
+	background-color:lime;
 	text-align:right;
+	opacity: 0.6;
+    filter: alpha(opacity=60); /* msie */
+
 }
 #map{
 	height:inherit;
 	width: 100%;
-	background-color:green;
+	background-color:yellow;
+	opacity: 0.6;
+    filter: alpha(opacity=60); /* msie */
+
 }
 #gamelevels{
 	display:inline-block;
-	left:30px;
+	padding-left:20%;
 }
 #taskmap{
 	display:inline-block;
-	right:30px;
+	padding-left:20%;
 }
 
 #game{

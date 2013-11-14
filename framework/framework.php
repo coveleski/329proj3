@@ -79,31 +79,29 @@ public function getUserLevel(){
 				
 	}
 	public function updateUserLevel($lvl){ //Accept a friend request from a friend request ID
+		$_SESSION['level'] = $_SESSION['level'] + 1;
 		if($_SESSION['id']){
 			$uid = $this->secure($_SESSION['id']);
+			$lvl =  $this->secure($_SESSION['level']);
 			mysql_query("UPDATE Users SET level  = '$lvl' WHERE ID = '$uid' LIMIT 1"); 
-			return true; 
 			
 		}
-		else{
-			return false; 
+		
+		return true; 
 
-		}
+		
 	}
 
 
 	
 	public function Logout(){ //Ends the session for the user, as well as removes the cookies
-		unset($_SESSION['id']);
-		unset($session['id'] );
-		unset($_SESSION['viewtask'] );
-		unset($_SESSION['viewprofile'] ); 
-		unset($_SESSION['pid'] );
+		unset($_SESSION['ID']);
 		unset($_SESSION['username'] );
-		unset($_SESSION['oauth_uid'] );
-		unset($_SESSION['oauth_provider']);
-		unset($_SESSION['oauth_token'] );
-		unset($_SESSION['oauth_secret']);
+		unset($_SESSION['level'] ); 
+		unset($_SESSION['id'] );
+		unset($_SESSION['username'] );
+		unset($_SESSION['correct'] );
+		unset($_SESSION['problems']);
 	}
 	public function friendAccept($rid){ //Accept a friend request from a friend request ID
 		if($_SESSION['id']){

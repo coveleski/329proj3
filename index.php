@@ -1,6 +1,11 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/cyspell/framework/config.php');
 
+if(isset( $_SESSION["correct"] )){$_SESSION["correct"] = 0; }
+if(isset( $_SESSION["problems"] )){$_SESSION["problems"] = 5; }
+
+
+
 ?>
 <html>
 <head>
