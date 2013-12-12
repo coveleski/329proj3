@@ -4,23 +4,34 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/cyspell/framework/config.php');
 if(!isset( $_SESSION["correct"] )){$_SESSION["correct"] = 0; }
 if(!isset( $_SESSION["problems"] )){$_SESSION["problems"] = 5; }
 if(!isset( $_SESSION["level"] )){$_SESSION["level"] = 11; }
+if(!isset( $_SESSION["maxlevel"] )){$_SESSION["maxlevel"] = 11; }
 
 
+
+if(isset( $_GET["problems"] ) && $_GET["problems"] != ""){ $problems = $_GET["problems"]; }       else { $problems = $_SESSION["problems"]; }
 if(isset( $_GET["level"] ) && $_GET["level"] != ""){ $level = $_GET["level"]; }          else { $level = $_SESSION["level"]; }
 if(isset( $_GET["correct"] ) && $_GET["correct"] != ""){ $correct = $_GET["correct"]; }    else { $correct = $_SESSION["correct"]; }
 
-$updated="0";
 
 
-	
-if(isset($_GET["problems"]) &&  isset($_GET['level'])  &&   isset( $_GET["correct"] )  ){
-	
+if(isset( $_GET["nlevel"] ) && $_GET["nlevel"] != ""){ $nlevel = $_GET["nlevel"]; }
+
+//if ($nlevel < $system->getUserLevel()){
+//	$level = $nlevel;
+//}
+
+			//$system->sendMail();
+
+
+$updated="0";	
+if(isset($_GET["problems"]) &&  isset($_GET['level'])  &&  isset( $_GET["correct"] )  ){
 	if($correct){ $_SESSION['correct'] = $_SESSION['correct'] + 1; }
+	
+	
 	if($_SESSION["problems"] == 0){
-	echo("updated");
 		if($_SESSION['correct'] >= 5){
-			
-			echo("updated");
+		
+			//$system->sendMail();
 			$updated = $system->updateUserLevel(1);
 			
 		}
@@ -28,7 +39,10 @@ if(isset($_GET["problems"]) &&  isset($_GET['level'])  &&   isset( $_GET["correc
 		$_SESSION['correct'] = 0;
 			
 	}
-	$_SESSION['problems'] = $_SESSION['problems'] - 1;
+	//else{
+		$_SESSION['problems'] = $_SESSION['problems'] - 1;
+	//}
+	
 
 }
 
@@ -39,7 +53,6 @@ if($updated) {  $updated = "1";  }
           'numcorrect'    => 'bar',
           'refresh'       => "".$updated,
           'wordlist' => array('green','blue')
-
      );
      
      
@@ -62,8 +75,9 @@ if($updated) {  $updated = "1";  }
 
 
 	<div id="imageDIV">	
-		<?php      echo("For Testing, the correct value is: ".$file_name); ?>
+		<?php echo("For Testing, the correct value is: ".$file_name); ?>
 		<br>
+		<div class="exercisetext">What is this?</div>
 		<img id="image" border="0" src="<?php echo($randfile); ?>"  width="300" height="225">
 	</div>
 	
@@ -96,17 +110,9 @@ if($updated) {  $updated = "1";  }
 			?>
 			<br>
 			
-			<?php echo($_SESSION["problems"]);?> exercises left.
-
+			<?php echo($_SESSION["problems"]);?> exercises left with <?php echo($_SESSION['correct']);?> exercises correct.
 			
-			 <br>
-
-			<?php echo($_SESSION['correct']);?> exercises correct.
-
-		</div>
-
-		<span class="exercisetext">What is this?</span>
-		
+		</div>		
 		<div id="alertArea" style="display: none;"></div>
 		<div id="formDIV">
 			<form id="Spellform" method="get">

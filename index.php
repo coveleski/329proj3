@@ -1,8 +1,8 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/cyspell/framework/config.php');
 
-if(isset( $_SESSION["correct"] )){$_SESSION["correct"] = 0; }
-if(isset( $_SESSION["problems"] )){$_SESSION["problems"] = 5; }
+//if(isset( $_SESSION["correct"] )){$_SESSION["correct"] = 0; }
+//if(isset( $_SESSION["problems"] )){$_SESSION["problems"] = 5; }
 
 
 
@@ -39,6 +39,7 @@ $(document).ready(function(){
 		<div id="gamelevels">
 			<div id="k" class="grade">
 				<ul id="kinderlist" class="gradelist">
+					<li id="" class="img"><img src="css/images/Map/k.png" height="35" width="200"></li>
 					<li id="11" class="level"><a href="index.php?level=11"><img src="images/1.png" height="35" width="35"></a></li>
 					<li id="12" class="level"><a href="index.php?level=12"><img src="images/2.png" height="35" width="35"></a></li>
 					<li id="13" class="level"><a href="index.php?level=13"><img src="images/3.png" height="35" width="35"></a></li>
@@ -48,6 +49,7 @@ $(document).ready(function(){
 			</div>
 			<div id="1st" class="grade">
 				<ul id="1stlist" class="gradelist">
+					<li id="" class="img"><img src="css/images/Map/1.png" height="35" width="200"></li>
 					<li id="21" class="level"><a href="index.php?level=21"><img src="images/1.png" height="35" width="35"></a></li>
 					<li id="22" class="level"><a href="index.php?level=22"><img src="images/2.png" height="35" width="35"></a></li>
 					<li id="23" class="level"><a href="index.php?level=23"><img src="images/3.png" height="35" width="35"></a></li>
@@ -57,6 +59,8 @@ $(document).ready(function(){
 			</div>
 			<div id="2nd" class="grade">
 				<ul id="2ndlist" class="gradelist">
+					<li id="" class="img"><img src="css/images/Map/2.png" height="35" width="200"></li>
+
 					<li id="31" class="level"><a href="index.php?level=31"><img src="images/1.png" height="35" width="35"></a></li>
 					<li id="32" class="level"><a href="index.php?level=32"><img src="images/2.png" height="35" width="35"></a></li>
 					<li id="33" class="level"><a href="index.php?level=33"><img src="images/3.png" height="35" width="35"></a></li>
@@ -66,6 +70,8 @@ $(document).ready(function(){
 			</div>
 			<div id="3rd" class="grade">
 				<ul id="3rdlist" class="gradelist">
+					<li id="" class="img"><img src="css/images/Map/3.png" height="35" width="200"></li>
+
 					<li id="41" class="level"><a href="index.php?level=41"><img src="images/1.png" height="35" width="35"></a></li>
 					<li id="42" class="level"><a href="index.php?level=42"><img src="images/2.png" height="35" width="35"></a></li>
 					<li id="43" class="level"><a href="index.php?level=43"><img src="images/3.png" height="35" width="35"></a></li>
@@ -75,6 +81,8 @@ $(document).ready(function(){
 			</div>
 			<div id="4th" class="grade">
 				<ul id="4thlist" class="gradelist">
+					<li id="" class="img"><img src="css/images/Map/4.png" height="35" width="200"></li>
+
 					<li id="51" class="level"><a href="index.php?level=51"><img src="images/1.png" height="35" width="35"></a></li>
 					<li id="52" class="level"><a href="index.php?level=52"><img src="images/2.png" height="35" width="35"></a></li>
 					<li id="53" class="level"><a href="index.php?level=53"><img src="images/3.png" height="35" width="35"></a></li>
@@ -86,27 +94,26 @@ $(document).ready(function(){
 		
 	<div id="taskmap">
 			<div id="level" class="task">
+				<ul id="topcol" class="tasklist">
+					<li id="a" class="taskitem"><img src="css/images/Map/a.png" height="35" width="200"></li>
+				</ul>
 				<ul id="firstcol" class="tasklist">
-					<li id="11" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
-					<li id="12" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
-					<li id="13" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
-					<li id="14" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
+					<li id="a" class="taskitem"><img src="css/images/Map/wordsinrow.png" height="35" width="200"></li>
+
+					<li id="11" class="taskitem"><a href=""><img src="css/images/Map/5.png" height="35" width="70"></a></li>
+					<li id="12" class="taskitem"><a href=""><img src="css/images/Map/10.png" height="35" width="70"></a></li>
+					<li id="13" class="taskitem"><a href=""><img src="css/images/Map/15.png" height="35" width="70"></a></li>
+					<li id="14" class="taskitem"><a href=""><img src="css/images/Map/20.png" height="35" width="70"></a></li>
 				</ul>
 			</div>
 			<div id="inrow" class="task">
 				<ul id="firstcol" class="tasklist">
+					<li id="a" class="taskitem"><img src="css/images/Map/daysinrow.png" height="35" width="200"></li>
+
 					<li id="11" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
-					<li id="12" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
-					<li id="13" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
-					<li id="14" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
-				</ul>
-			</div>
-			<div id="misses" class="task">
-				<ul id="firstcol" class="tasklist">
-					<li id="11" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
-					<li id="12" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
-					<li id="13" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
-					<li id="14" class="taskitem"><a href=""><img src="images/1.png" height="35" width="35"></a></li>
+					<li id="12" class="level"><a href=""><img src="images/2.png" height="35" width="35"></a></li>
+					<li id="13" class="level"><a href=""><img src="images/3.png" height="35" width="35"></a></li>
+					<li id="14" class="level"><a href=""><img src="images/4.png" height="35" width="35"></a></li>
 				</ul>
 			</div>
 		</div>

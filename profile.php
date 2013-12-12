@@ -18,7 +18,7 @@ if(isset($_POST['cusername']) && $_POST['cpassword'] && $_POST['csubmit']){
 	<?php echo ($_SESSION['username']); ?>	<a class="login" href="index.php?logout=1">Logout</a>
 <?php } else { ?>
 <form method="post" action="index.php">
-	Username:<input name="cusername" type="text" />
+	Username(Email):<input name="cusername" type="text" />
 	Password:<input name="cpassword" type="password" />
 	<input name="csubmit" type="submit" value="login" />
 </form>
